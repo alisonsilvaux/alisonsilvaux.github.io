@@ -386,7 +386,7 @@ footer {
     gap: 48px;
 }
 
-/* Desktop menor e tablets */
+/* Desktop menor (1440px) */
 @media (max-width: 1440px) {
     .title-line {
         flex-wrap: wrap;
@@ -422,23 +422,93 @@ footer {
     }
 }
 
-/* Mobile */
-@media (max-width: 768px) {
+/* Breakpoint específico para o título */
+@media (max-width: 1200px) and (min-width: 1081px) {
+    .title-line {
+        flex-wrap: wrap;
+        gap: 24px;
+    }
+
+    .right-group {
+        width: 100%;
+        margin-top: -40px;
+    }
+}
+
+/* Mobile (1080px) */
+@media (max-width: 1080px) {
     main {
         margin: 0 24px;
     }
 
     .navbar {
-        width: calc(100% - 48px);
-        margin: 0 24px;
-        top: 16px;
+        width: 100%;
+        margin: 0;
+        top: 0;
+        padding: 0;
     }
 
     .nav-group {
         width: 100%;
-        flex-wrap: wrap;
-        justify-content: center;
         margin: 0;
+        border-radius: 0;
+        justify-content: space-between;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        border: none;
+        border-bottom: 1px solid rgba(230, 227, 227, 0.24);
+    }
+
+    .nav-group::-webkit-scrollbar {
+        display: none;
+    }
+
+    .nav-group a {
+        flex-shrink: 0;
+    }
+
+    .nav-group a.cta-button {
+        margin-left: auto;
+    }
+
+    .title-line {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+        flex-wrap: nowrap;
+    }
+
+    .left-group {
+        display: inline-flex;
+        white-space: nowrap;
+        align-items: center;
+    }
+
+    .from-group {
+        display: inline-flex;
+        white-space: nowrap;
+        align-items: center;
+    }
+
+    .right-group {
+        width: auto;
+        margin-top: 0;
+    }
+
+    .company-logos {
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        overflow-x: auto;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        margin: 0 24px;
+        padding: 24px;
+        width: calc(100% - 48px);
+        max-width: 800px;
+        margin-bottom: 120px;
     }
 
     .hero {
@@ -458,6 +528,16 @@ footer {
         gap: 24px;
     }
 
+    .hero-title .profile-pic {
+        width: 48px;
+        height: 48px;
+    }
+
+    .hero-title .profile-pic img {
+        width: 90px;
+        height: 48px;
+    }
+
     .hero-title .greeting,
     .hero-title .role {
         justify-content: flex-start;
@@ -473,11 +553,6 @@ footer {
 
     .current-role {
         font-size: 24px;
-    }
-
-    .company-logos {
-        flex-wrap: wrap;
-        justify-content: center;
     }
 
     .about-content {
@@ -497,22 +572,82 @@ footer {
         gap: 48px;
     }
 
+    .right-group span {
+        margin-top: 0 !important;
+    }
+
+    .language-toggle {
+        display: none;
+    }
+}
+
+/* Breakpoint para título mobile */
+@media (max-width: 860px) {
+    .title-line {
+        flex-wrap: wrap;
+        gap: 24px;
+    }
+
+    .right-group {
+        width: 100%;
+        margin-top: -40px;
+    }
+}
+
+/* Mobile pequeno */
+@media (max-width: 560px) {
+    .nav-group a.cta-button {
+        display: none; /* esconde o CTA do navbar */
+    }
+
+    .nav-group {
+        padding-right: 24px;
+    }
+
+    /* Novo CTA flutuante */
+    .navbar::after {
+        content: "MESSAGE ME";
+        position: fixed;
+        bottom: 24px;
+        right: 24px;
+        background-color: #E8BD89;
+        color: #180E0E;
+        padding: 0 1.5rem;
+        height: 56px;
+        border-radius: 100px;
+        display: flex;
+        align-items: center;
+        font-weight: 500;
+        font-size: 0.9rem;
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.25);
+        z-index: 1001;
+        border: 2px solid transparent;
+        background-image: linear-gradient(#E8BD89, #E8BD89), 
+                         linear-gradient(90deg, #5B370A, #E4E4E4, #6B5E4E, #5B370A);
+        background-size: 100% 100%, 400% 100%;
+        background-origin: border-box;
+        background-clip: padding-box, border-box;
+        animation: rotateBorder 8s linear infinite;
+        cursor: pointer;
+    }
+
     .right-group {
         width: 100%;
         margin-top: -40px;
     }
 
-    .right-group span {
-        margin-top: 0 !important;
+    .company-logos {
+        width: 100vw;
+        margin: 0 -24px;
+        padding: 24px;
+        margin-bottom: 120px;
     }
 
-    .hero-title .profile-pic {
-        width: 48px;
-        height: 48px;
-    }
-
-    .hero-title .profile-pic img {
-        width: 90px;
-        height: 48px;
+    .company-logos img {
+        height: auto;
+        width: calc((100vw - 48px - (var(--spacing-md) * 5)) / 6);
+        min-width: 0;
+        flex-shrink: 0;
+        object-fit: contain;
     }
 } 
