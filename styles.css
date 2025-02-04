@@ -602,6 +602,16 @@ footer {
 
     .nav-group {
         padding-right: 24px;
+        gap: 0; /* Remove o espaçamento entre os itens */
+    }
+
+    .nav-group a {
+        font-size: 0; /* Mantém o texto original escondido */
+        padding: 0.5rem 0.75rem; /* Ajusta o padding para compensar a fonte menor */
+    }
+
+    .nav-group a::after {
+        font-size: 0.75rem; /* Aplica o tamanho menor da fonte no texto do pseudo-elemento */
     }
 
     /* Novo CTA flutuante */
