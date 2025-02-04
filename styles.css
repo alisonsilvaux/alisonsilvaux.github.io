@@ -65,6 +65,11 @@ main {
     font-weight: 400;
 }
 
+/* Estilos específicos para o nome */
+.nav-group a[href="#home"] {
+    font-weight: 700;
+}
+
 /* Depois, estilos específicos para links normais (não-CTA) */
 .nav-group a:not(.cta-button) {
     background-color: transparent;
@@ -398,8 +403,16 @@ footer {
         margin-top: -32px;
     }
 
+    .nav-group a:not(.logo-link) {
+        font-size: 0;
+    }
+    .nav-group a:not(.logo-link)::after {
+        font-size: 0.9rem;
+    }
+
     .nav-group a[href="#home"]::after {
-        content: "HOME";
+        content: "ALISON SILVA";
+        font-weight: 700;
     }
     .nav-group a[href="#greatest-hits"]::after {
         content: "PROJECTS";
@@ -412,13 +425,6 @@ footer {
     }
     .nav-group a[href="#contact"]::after {
         content: "MESSAGE ME";
-    }
-
-    .nav-group a {
-        font-size: 0;
-    }
-    .nav-group a::after {
-        font-size: 0.9rem;
     }
 }
 
@@ -459,7 +465,6 @@ footer {
         scrollbar-width: none;
         -ms-overflow-style: none;
         border: none;
-        border-bottom: 1px solid rgba(230, 227, 227, 0.24);
     }
 
     .nav-group::-webkit-scrollbar {
@@ -602,7 +607,7 @@ footer {
 
     .nav-group {
         padding: 8px;
-        gap: 0;
+        gap: 8px; /* Espaçamento de 8px entre os itens */
         justify-content: flex-start; /* Alinha os itens à esquerda */
         overflow-x: auto;
     }
@@ -616,6 +621,10 @@ footer {
 
     .nav-group a::after {
         font-size: 0.75rem; /* Aplica o tamanho menor da fonte no texto do pseudo-elemento */
+    }
+
+    .nav-group a[href="#home"]::after {
+        font-weight: 700; /* Mantém o peso da fonte pesado mesmo no mobile */
     }
 
     /* Novo CTA flutuante */
