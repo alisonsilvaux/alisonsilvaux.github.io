@@ -601,13 +601,17 @@ footer {
     }
 
     .nav-group {
-        padding-right: 24px;
-        gap: 0; /* Remove o espaçamento entre os itens */
+        padding: 8px;
+        gap: 0;
+        justify-content: flex-start; /* Alinha os itens à esquerda */
+        overflow-x: auto;
     }
 
     .nav-group a {
         font-size: 0; /* Mantém o texto original escondido */
         padding: 0.5rem 0.75rem; /* Ajusta o padding para compensar a fonte menor */
+        margin: 0; /* Remove qualquer margem */
+        flex: 0 0 auto; /* Evita que os itens encolham */
     }
 
     .nav-group a::after {
