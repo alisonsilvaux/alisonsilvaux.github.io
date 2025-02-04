@@ -1,3 +1,8 @@
+/* Adiciona scroll suave para todo o site */
+html {
+    scroll-behavior: smooth;
+}
+
 :root {
     --background: #1A1212;
     --text: #FFFFFF;
@@ -68,6 +73,8 @@ main {
 /* Estilos específicos para o nome */
 .nav-group a[href="#home"] {
     font-weight: 700;
+    font-size: 1.7rem;
+    font-family: 'Doto', sans-serif;
 }
 
 /* Depois, estilos específicos para links normais (não-CTA) */
@@ -81,10 +88,19 @@ main {
     color: #E8BD89;
 }
 
+/* Remove o background do nome quando ativo, mantendo apenas no hover */
+.nav-group a[href="#home"].active {
+    background-color: transparent;
+}
+
+.nav-group a[href="#home"]:hover {
+    background-color: #303030;
+}
+
 .cta-button {
     background-color: #E8BD89;
     color: #180E0E !important;
-    border: 2px solid transparent;
+    border: 3px solid transparent;
     background-image: linear-gradient(#E8BD89, #E8BD89), 
                      linear-gradient(90deg, #5B370A, #E4E4E4, #6B5E4E, #5B370A);
     background-size: 100% 100%, 400% 100%;
@@ -222,6 +238,10 @@ main {
     height: 64px;
 }
 
+.hero-title .profile-pic {
+    flex-shrink: 0;
+}
+
 .hero-text {
     font-size: 48px;
     color: #E6E3E3;
@@ -234,7 +254,8 @@ main {
 .current-role {
     font-size: 24px;
     color: #E6E3E3;
-    font-weight: 400;
+    font-weight: 300;
+    margin-top: 24px;
 }
 
 .current-role .highlight {
@@ -247,6 +268,8 @@ main {
 
 .companies p {
     margin-bottom: 16px;
+    color: #E6E3E3;
+    opacity: 0.6;
 }
 
 .company-logos {
@@ -394,13 +417,34 @@ footer {
 /* Desktop menor (1440px) */
 @media (max-width: 1440px) {
     .title-line {
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
         gap: 48px;
     }
 
     .right-group {
-        width: 100%;
-        margin-top: -32px;
+        width: auto;
+        margin-top: 0;
+    }
+
+    .hero-title {
+        font-size: 38px;
+    }
+
+    .hero-text {
+        font-size: 38px;
+    }
+
+    /* Quando a tela ficar muito pequena e precisar quebrar */
+    @media (max-width: 1200px) {
+        .title-line {
+            flex-wrap: wrap;
+            gap: 96px;
+        }
+
+        .right-group {
+            width: 100%;
+            margin-top: 48px;
+        }
     }
 
     .nav-group a:not(.logo-link) {
@@ -411,8 +455,9 @@ footer {
     }
 
     .nav-group a[href="#home"]::after {
-        content: "ALISON SILVA";
+        content: "ALISON";
         font-weight: 700;
+        font-size: 1.5rem;
     }
     .nav-group a[href="#greatest-hits"]::after {
         content: "PROJECTS";
@@ -429,20 +474,20 @@ footer {
 }
 
 /* Breakpoint específico para o título */
-@media (max-width: 1200px) and (min-width: 1081px) {
+@media (max-width: 1200px) and (min-width: 1121px) {
     .title-line {
         flex-wrap: wrap;
-        gap: 24px;
+        gap: 48px;
     }
 
     .right-group {
         width: 100%;
-        margin-top: -40px;
+        margin-top: -36px;
     }
 }
 
-/* Mobile (1080px) */
-@media (max-width: 1080px) {
+/* Mobile (1120px) */
+@media (max-width: 1120px) {
     main {
         margin: 0 24px;
     }
@@ -482,7 +527,7 @@ footer {
     .title-line {
         display: flex;
         align-items: center;
-        gap: 24px;
+        gap: 16px;
         flex-wrap: nowrap;
     }
 
@@ -590,7 +635,7 @@ footer {
 @media (max-width: 860px) {
     .title-line {
         flex-wrap: wrap;
-        gap: 24px;
+        gap: 40px;
     }
 
     .right-group {
@@ -599,32 +644,33 @@ footer {
     }
 }
 
-/* Mobile pequeno */
-@media (max-width: 560px) {
+/* Mobile médio */
+@media (max-width: 704px) {
     .nav-group a.cta-button {
         display: none; /* esconde o CTA do navbar */
     }
 
     .nav-group {
         padding: 8px;
-        gap: 8px; /* Espaçamento de 8px entre os itens */
-        justify-content: flex-start; /* Alinha os itens à esquerda */
+        gap: 8px;
+        justify-content: flex-start;
         overflow-x: auto;
     }
 
     .nav-group a {
-        font-size: 0; /* Mantém o texto original escondido */
-        padding: 0.5rem 0.75rem; /* Ajusta o padding para compensar a fonte menor */
-        margin: 0; /* Remove qualquer margem */
-        flex: 0 0 auto; /* Evita que os itens encolham */
+        font-size: 0;
+        padding: 0.5rem 0.75rem;
+        margin: 0;
+        flex: 0 0 auto;
     }
 
     .nav-group a::after {
-        font-size: 0.75rem; /* Aplica o tamanho menor da fonte no texto do pseudo-elemento */
+        font-size: 0.75rem;
     }
 
     .nav-group a[href="#home"]::after {
-        font-weight: 700; /* Mantém o peso da fonte pesado mesmo no mobile */
+        font-weight: 700;
+        font-size: 1.3rem;
     }
 
     /* Novo CTA flutuante */
@@ -654,9 +700,17 @@ footer {
         cursor: pointer;
     }
 
+    .title-line {
+        gap: 36px;
+    }
+
     .right-group {
         width: 100%;
-        margin-top: -40px;
+        margin-top: -36px;
+    }
+
+    .hero-text {
+        margin-top: -24px;
     }
 
     .company-logos {
@@ -673,4 +727,9 @@ footer {
         flex-shrink: 0;
         object-fit: contain;
     }
+}
+
+/* Mobile pequeno */
+@media (max-width: 560px) {
+    /* Ajustes específicos para telas ainda menores, se necessário */
 } 
