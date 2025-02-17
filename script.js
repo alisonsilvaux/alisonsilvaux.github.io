@@ -126,7 +126,7 @@ document.addEventListener('DOMContentLoaded', async function() {
 
     // Sistema de tradução
     let translations;
-    let currentLang = localStorage.getItem('language') || 'pt';
+    let currentLang = localStorage.getItem('language') || 'en';
 
     // Função para carregar traduções
     async function loadTranslations() {
