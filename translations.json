@@ -1,0 +1,132 @@
+{
+    "en": {
+        "nav": {
+            "home": "ALISON",
+            "projects": "GREATEST HITS",
+            "educational": "EDUCATIONAL WORK",
+            "about": "ABOUT ME",
+            "cta": "MESSAGE ME ON LINKEDIN"
+        },
+        "hero": {
+            "greeting": "Hey!",
+            "im": "I'm",
+            "name": "Alison",
+            "role": "Designer",
+            "from": "from",
+            "country": "Brazil",
+            "tagline": "I still believe that design has the power to make people's lives better.",
+            "currentRole": "Currently designing open-banking solutions",
+            "companies": "Some companies I've worked with:"
+        },
+        "projects": {
+            "title": "Greatest hits",
+            "subtitle": "Here you'll find some of the best projects I've worked on.",
+            "project1": {
+                "title": "Decreasing contact rate with a data-driven approach",
+                "metric1": "contact rate",
+                "metric2": "task completion rate"
+            },
+            "project2": {
+                "title": "Revolutionizing open banking payments",
+                "metric1": "user satisfaction",
+                "metric2": "drop-off rate"
+            },
+            "project3": {
+                "title": "Simplifying accounting software",
+                "metric1": "task completion",
+                "metric2": "user retention"
+            },
+            "project4": {
+                "title": "Redesigning digital banking experience",
+                "metric1": "user satisfaction",
+                "metric2": "engagement"
+            },
+            "project5": {
+                "title": "Creating a design system for scale",
+                "metric1": "development time",
+                "metric2": "consistency"
+            }
+        },
+        "educational": {
+            "title": "Sharing is caring!",
+            "description": "I always believed in democratizing design education and giving back to the design community. During these 10 years I've helped the next generation of designs with lessons, workshops, articles and events.",
+            "speaking": "I've had the pleasure of speaking at:"
+        },
+        "about": {
+            "title": "About me",
+            "p1": "I've been working as a designer for about 10 years doing all kinds of things from print to fashion and digital products.",
+            "p2": "In the last 5 years, I've designed complex enterprise software (accounting software, financial management products for banks, internal process design systems, fraud prevention solutions).",
+            "p3": "My skills go from conducting design projects with the use of diverse research and collaboration methods to an extensive knowledge of tools and design team needs.",
+            "p4": "I also like helping on the business side of things: developing new services, products strategies and key business metrics.",
+            "download": "DOWNLOAD RESUME"
+        },
+        "footer": {
+            "cta": "Wanna talk? Message me on LinkedIn"
+        }
+    },
+    "pt": {
+        "nav": {
+            "home": "ALISON",
+            "projects": "PROJETOS",
+            "educational": "EDUCACIONAL",
+            "about": "SOBRE MIM",
+            "cta": "FALE COMIGO NO LINKEDIN"
+        },
+        "hero": {
+            "greeting": "Olá!",
+            "im": "Eu sou",
+            "name": "Alison",
+            "role": "Designer",
+            "from": "do",
+            "country": "Brasil",
+            "tagline": "Ainda acredito que o design tem o poder de melhorar a vida das pessoas.",
+            "currentRole": "No momento estou projetando soluções de open-banking na",
+            "companies": "Algumas empresas em que trabalhei:"
+        },
+        "projects": {
+            "title": "Principais projetos",
+            "subtitle": "Aqui você encontrará alguns dos melhores projetos em que trabalhei.",
+            "project1": {
+                "title": "Reduzindo taxa de contato com abordagem orientada a dados",
+                "metric1": "taxa de contato",
+                "metric2": "taxa de conclusão"
+            },
+            "project2": {
+                "title": "Revolucionando pagamentos open banking",
+                "metric1": "satisfação do usuário",
+                "metric2": "taxa de desistência"
+            },
+            "project3": {
+                "title": "Simplificando software de contabilidade",
+                "metric1": "conclusão de tarefas",
+                "metric2": "retenção de usuários"
+            },
+            "project4": {
+                "title": "Redesenhando experiência bancária digital",
+                "metric1": "satisfação do usuário",
+                "metric2": "engajamento"
+            },
+            "project5": {
+                "title": "Criando um design system escalável",
+                "metric1": "tempo de desenvolvimento",
+                "metric2": "consistência"
+            }
+        },
+        "educational": {
+            "title": "Compartilhar é cuidar!",
+            "description": "Sempre acreditei na democratização da educação em design e em retribuir à comunidade. Durante estes 10 anos, ajudei a próxima geração de designers com aulas, workshops, artigos e eventos.",
+            "speaking": "Tive o prazer de palestrar em:"
+        },
+        "about": {
+            "title": "Sobre mim",
+            "p1": "Trabalho como designer há cerca de 10 anos fazendo todo tipo de coisa, desde impressos até moda e produtos digitais.",
+            "p2": "Nos últimos 5 anos, projetei software empresarial complexo (software de contabilidade, produtos de gestão financeira para bancos, sistemas de design de processos internos, soluções de prevenção à fraude).",
+            "p3": "Minhas habilidades vão desde a condução de projetos de design com o uso de diversos métodos de pesquisa e colaboração até um extenso conhecimento de ferramentas e necessidades de equipes de design.",
+            "p4": "Também gosto de ajudar no lado comercial: desenvolvendo novos serviços, estratégias de produtos e métricas-chave de negócios.",
+            "download": "BAIXAR CURRÍCULO"
+        },
+        "footer": {
+            "cta": "Vamos conversar? Me chame no LinkedIn"
+        }
+    }
+} 

@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', async function() {
     const menuItems = document.querySelectorAll('.nav-group a');
     const sections = document.querySelectorAll('section[id]');
     
@@ -123,4 +123,118 @@ document.addEventListener('DOMContentLoaded', function() {
 
     prevButton.addEventListener('click', () => updateCarousel('prev'));
     nextButton.addEventListener('click', () => updateCarousel('next'));
+
+    // Sistema de tradução
+    let translations;
+    let currentLang = localStorage.getItem('language') || 'pt';
+
+    // Função para carregar traduções
+    async function loadTranslations() {
+        try {
+            const response = await fetch('translations.json');
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            const data = await response.json();
+            console.log('Traduções carregadas com sucesso:', data);
+            translations = data;
+            updateLanguage(currentLang);
+            updateLanguageToggle();
+        } catch (error) {
+            console.error('Erro ao carregar traduções:', error);
+        }
+    }
+
+    // Carrega as traduções imediatamente
+    await loadTranslations();
+
+    // Atualiza os botões de idioma
+    function updateLanguageToggle() {
+        console.log('Atualizando botões de idioma para:', currentLang);
+        document.querySelectorAll('.language-toggle a').forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('data-lang') === currentLang) {
+                link.classList.add('active');
+            }
+        });
+    }
+
+    // Atualiza o texto da página
+    function updateLanguage(lang) {
+        console.log('Atualizando idioma para:', lang);
+        if (!translations) {
+            console.error('Traduções não carregadas ainda');
+            return;
+        }
+
+        const t = translations[lang];
+        if (!t) {
+            console.error('Traduções não encontradas para o idioma:', lang);
+            return;
+        }
+
+        try {
+            // Navegação
+            document.querySelector('a[href="#home"]').textContent = t.nav.home;
+            document.querySelector('a[href="#greatest-hits"]').textContent = t.nav.projects;
+            document.querySelector('a[href="#educational"]').textContent = t.nav.educational;
+            document.querySelector('a[href="#about"]').textContent = t.nav.about;
+            document.querySelector('.cta-button').textContent = t.nav.cta;
+
+            // Hero
+            document.querySelector('.left-group span:nth-child(1)').textContent = t.hero.greeting;
+            document.querySelector('.left-group span:nth-child(2)').textContent = t.hero.im;
+            document.querySelector('.left-group .highlight').textContent = t.hero.name;
+            document.querySelector('.right-group .highlight').textContent = t.hero.role;
+            document.querySelector('.right-group span:nth-child(2)').textContent = t.hero.from;
+            document.querySelector('.right-group span:nth-child(3)').textContent = t.hero.country;
+            document.querySelector('.hero-text').textContent = t.hero.tagline;
+            document.querySelector('.current-role').innerHTML = `${t.hero.currentRole} <a href="https://us.trustly.com/" target="_blank" rel="noopener noreferrer" class="highlight">@Trustly</a>`;
+            document.querySelector('.companies p').textContent = t.hero.companies;
+
+            // Projetos
+            document.querySelector('#greatest-hits h2').textContent = t.projects.title;
+            document.querySelector('#greatest-hits > p').textContent = t.projects.subtitle;
+
+            // Seção educacional
+            document.querySelector('.sharing-card h2').textContent = t.educational.title;
+            document.querySelector('.sharing-card p').textContent = t.educational.description;
+            document.querySelector('.education-platforms p').textContent = t.educational.speaking;
+
+            // Sobre
+            document.querySelector('.about h2').textContent = t.about.title;
+            const aboutParagraphs = document.querySelectorAll('.about-text p');
+            aboutParagraphs[0].textContent = t.about.p1;
+            aboutParagraphs[1].textContent = t.about.p2;
+            aboutParagraphs[2].textContent = t.about.p3;
+            aboutParagraphs[3].textContent = t.about.p4;
+            document.querySelector('.download-button').textContent = t.about.download;
+
+            // Footer
+            document.querySelector('.linkedin-button').textContent = t.footer.cta;
+
+            console.log('Tradução concluída com sucesso');
+        } catch (error) {
+            console.error('Erro ao atualizar traduções:', error);
+        }
+    }
+
+    // Event listeners para os botões de idioma
+    document.querySelectorAll('.language-toggle a').forEach(link => {
+        link.addEventListener('click', async function(e) {
+            e.preventDefault();
+            const lang = this.getAttribute('data-lang');
+            console.log('Mudando idioma para:', lang);
+            currentLang = lang;
+            localStorage.setItem('language', lang);
+            
+            // Se as traduções não estiverem carregadas, carrega primeiro
+            if (!translations) {
+                await loadTranslations();
+            } else {
+                updateLanguage(lang);
+                updateLanguageToggle();
+            }
+        });
+    });
 }); 
