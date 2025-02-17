@@ -65,8 +65,8 @@ document.addEventListener('DOMContentLoaded', function() {
         gyroscopeMaxAngleY: 5
     };
 
-    // Inicializa o efeito tilt nos cards com parâmetros mais suaves
-    VanillaTilt.init(document.querySelectorAll(".project-card"), tiltConfig);
+    // Inicializa o efeito tilt nos cards e na foto do about
+    VanillaTilt.init(document.querySelectorAll(".project-card, .about-image"), tiltConfig);
 
     // Controle do carrossel
     const slides = document.querySelectorAll('.carousel-slide');
